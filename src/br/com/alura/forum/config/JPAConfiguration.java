@@ -5,9 +5,7 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -22,11 +20,13 @@ public class JPAConfiguration {
 
 	public DataSource producao() {
 		
-		String ip = System.getenv("VM_MYSQL_HOST");
+		String dbHost = "192.168.50.11";
+		String dbPort = "3306";
+		String dbUrl = String.format("jdbc:mysql://%s:%s/alura_forum?useSSL=false", dbHost, dbPort);
 		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://"+ ip +":3306/alura_forum?useSSL=false");
+		dataSource.setUrl(dbUrl);
 		dataSource.setUsername("alura");
 		dataSource.setPassword("qwerty123");
 		return dataSource;
