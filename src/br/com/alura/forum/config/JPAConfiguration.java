@@ -20,10 +20,12 @@ public class JPAConfiguration {
 
 	public DataSource producao() {
 		
-		String dbHost = "192.168.50.11";
+		String dbHost = System.getenv("VM_MYSQL_HOST");
 		String dbPort = "3306";
 		String dbUrl = String.format("jdbc:mysql://%s:%s/alura_forum?useSSL=false", dbHost, dbPort);
 		
+		System.out.println("[INFO] mysql url: " + dbUrl);
+ 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl(dbUrl);
