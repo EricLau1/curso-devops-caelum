@@ -15,6 +15,9 @@
     - name: "Export Env Vars"
       become: yes
       shell: echo 'export VM_MYSQL_HOST=192.168.50.11' >> /home/vagrant/.bashrc
+    - name: "Compile .bashrc"
+      become: yes
+      shell: . /home/vagrant/.bashrc
     - name: Install Java and Tomcat
       become: yes
       apt:
