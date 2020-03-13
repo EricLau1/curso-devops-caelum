@@ -46,7 +46,7 @@ pipeline {
         stage('Deployment Finalizado') {
            steps {
                script {
-                   slackSend(color: '#56E374', message: "Deployment [ALURA FORUM] finalizado", channel: 'eric-devops')
+                   slackSend(color: '#56E374', message: "Deployment [ALURA FORUM] finalizado. Ver no Jenkins: ${JOB_URL}", channel: 'eric-devops')
                 }
            }
        }
