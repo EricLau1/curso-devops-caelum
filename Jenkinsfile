@@ -20,7 +20,7 @@ pipeline {
 
        stage("Clonando projeto do github") {
            steps {
-               git credentialsId: 'github-ssh', url: "git@github.com:alefhsousa/docker8721.git"
+               git credentialsId: 'github-ssh', url: "git@github.com:EricLau1/curso-devops-caelum.git"
            }
        }
 
